@@ -25,21 +25,21 @@ body["resultSets"].each do |set|
     wins = team[set["headers"].index("W")]
     losses = team[set["headers"].index("L")]
     games = team[set["headers"].index("GP")]
-    winning_percentage = team[set["W_PCT"].index("W_PCT")]
+    winning_percentage = team[set["headers"].index("W_PCT")]
     minutes = team[set["headers"].index("MIN")]
     fgm = team[set["headers"].index("FGM")]
     fga = team[set["headers"].index("FGA")]
     fg_percentage = team[set["headers"].index("FG_PCT")]
-    3pta = team[set["headers"].index("FG3M")]
-    3ptm = team[set["headers"].index("FG3A")]
-    3pt_percentage = team[set["headers"].index("FG3_PCT")]
+    three_pt_a = team[set["headers"].index("FG3M")]
+    three_pt_m = team[set["headers"].index("FG3A")]
+    three_pt_percentage = team[set["headers"].index("FG3_PCT")]
     ftm = team[set["headers"].index("FTM")]
     fta = team[set["headers"].index("FTA")]
     ft_percentage = team[set["headers"].index("FT_PCT")]
     oreb = team[set["headers"].index("OREB")]
     dreb = team[set["headers"].index("DREB")]
     reb = team[set["headers"].index("REB")]
-    assists = team[set["headers"].index("AST")
+    assists = team[set["headers"].index("AST")]
     tov = team[set["headers"].index("TOV")]
     stl = team[set["headers"].index("STL")]
     blk = team[set["headers"].index("BLK")]
@@ -51,14 +51,14 @@ body["resultSets"].each do |set|
     games_played_rank = team[set["headers"].index("GP_RANK")]
     wins_rank = team[set["headers"].index("W_RANK")]
     loss_rank = team[set["headers"].index("L_RANK")]
-    winning_percentage_rank = team[set["W_PCT_RANK"].index("AST")]
+    winning_percentage_rank = team[set["headers"].index("AST")]
     min_rank = team[set["headers"].index("MIN_RANK")]
     fgm_rank = team[set["headers"].index("FGM_RANK")]
     fga_rank = team[set["headers"].index("FGA_RANK")]
     fg_pct_rank = team[set["headers"].index("FG_PCT_RANK")]
-    3ptm_rank = team[set["headers"].index("FG3M_RANK")]
-    3pta_rank = team[set["headers"].index("FG3A_RANK")]
-    3pt_percentage_rank = team[set["headers"].index("FG3_PCT_RANK")]
+    three_pt_m_rank = team[set["headers"].index("FG3M_RANK")]
+    three_pt_a_rank = team[set["headers"].index("FG3A_RANK")]
+    three_pt_percentage_rank = team[set["headers"].index("FG3_PCT_RANK")]
     ftm_rank = team[set["headers"].index("FTM_RANK")]
     fta_rank = team[set["headers"].index("FTA_RANK")]
     ft_percentage_rank = team[set["headers"].index("FT_PCT_RANK")]
@@ -78,7 +78,7 @@ body["resultSets"].each do |set|
 
 
 
-    if wins > 50
+    if wins_rank < 6 && three_pt_percentage_rank < 6 && ast_rank < 6
       puts name
     end
   end
